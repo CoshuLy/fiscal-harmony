@@ -1,14 +1,5 @@
-
-//arial 12
-//1.5 spacing
-//statement of the problem
-//15mins presentation
-
-//Inclusions of the Program
-//Computation of overall salary for certain months
-//Computation for Emergency Fund
-
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main(){
@@ -22,17 +13,51 @@ int main(){
     cout << "[1]. Sign In [2]. Sign Up" << endl;
     cout << "|";
     cin >> userOption;
-    
-    if(userOption == 1){
+
+    while (userOption != 1 && userOption != 2) {
         cout << "_________________________________" << endl;
+        if (cin >> userOption) {
+            // Valid input, break out of the loop
+            break;
+        } else {
+            // Invalid input, clear the error state and discard the invalid input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Invalid input. Please enter a valid number." << endl;
+            cout << "|";
+        }
+        cin >> userOption;
+    }
+    
+    switch(userOption)
+    {
+    
+    case 1:
+        cout << "_________________________________" << endl;
+        cout << "You are now signing in..." << endl;
         cout << "Username: ";
         cin >> userEmail;
         cout << "Password: ";
         cin >> userPassword;
         cout << "_________________________________" << endl;
-    }
+
+        if(userEmail != "admin" || userPassword != "password"){
+            while(userEmail != "admin" || userPassword != "password"){
+                cout << "Invalid password or username, please try again!" << endl;
+                cout << "Username: ";
+                cin >> userEmail;
+                cout << "Password: ";
+                cin >> userPassword;
+                cout << "_________________________________" << endl;
+                
+            }
+        }
+        
+        break;
     
-    if(userOption == 2){
+    
+    case 2:
         cout << "_________________________________" << endl;
         cout << "You are now creating an account" << endl;
         cout << "Username: ";
@@ -44,14 +69,13 @@ int main(){
         cout << "|";
         cin >> userSignIn;
         cout << "_________________________________" << endl;
-    }
-    
-    if(userSignIn == 1){
-        cout << "Username: ";
-        cin >> userEmail;
-        cout << "Password: ";
-        cin >> userPassword;
-        cout << "_________________________________" << endl;
+        
+        if (userSignIn == 1){
+            cout << "Username: ";
+            cin >> userEmail;
+            cout << "Password: ";
+            cin >> userPassword;
+            cout << "_________________________________" << endl;
         if(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
             while(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
                 cout << "You have entered the wrong username or password, please try again!" << endl;
@@ -59,8 +83,11 @@ int main(){
                 cin >> userEmail;
                 cout << "Password: ";
                 cin >> userPassword;
-                cout << "_________________________________" << endl;
+                cout << "_________________________________";
+                break;
+                }
             }
         }
-    cout << "Welcome, " << userEmail << " I hope you have a great time!";
     }
+    cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
+}
