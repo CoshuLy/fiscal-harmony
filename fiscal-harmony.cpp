@@ -33,19 +33,15 @@ int main(){
     case 1:
         cout << "_________________________________" << endl;
         cout << "You are now signing in..." << endl;
-        cout << "Username: ";
-        cin >> userEmail;
-        cout << "Password: ";
-        cin >> userPassword;
+        cout << "Username: "; cin >> userEmail;
+        cout << "Password: "; cin >> userPassword;
         cout << "_________________________________" << endl;
 
         if(userEmail != "admin" || userPassword != "password"){
             while(userEmail != "admin" || userPassword != "password"){
                 cout << "Invalid password or username, please try again!" << endl;
-                cout << "Username: ";
-                cin >> userEmail;
-                cout << "Password: ";
-                cin >> userPassword;
+                cout << "Username: "; cin >> userEmail;
+                cout << "Password: "; cin >> userPassword;
                 cout << "_________________________________" << endl;
                 
             }
@@ -53,18 +49,14 @@ int main(){
         
         break;
     
-    
     case 2:
         cout << "_________________________________" << endl;
         cout << "You are now creating an account" << endl;
-        cout << "Username: ";
-        cin >> userRegisterEmail;
-        cout << "Password: ";
-        cin >> userRegisterPassword;
+        cout << "Username: "; cin >> userRegisterEmail;
+        cout << "Password: "; cin >> userRegisterPassword;
         cout << "You have succesfully created an account, would you like to sign in?" << endl;
         cout << "[1]. Yes [2]. No" << endl;
-        cout << "|";
-        cin >> userSignIn;
+        cout << ">|"; cin >> userSignIn;
         cout << "_________________________________" << endl;
         
         while (userSignIn != 1 && userSignIn != 2) {
@@ -81,19 +73,15 @@ int main(){
         }
         
         if (userSignIn == 1){
-            cout << "Username: ";
-            cin >> userEmail;
-            cout << "Password: ";
-            cin >> userPassword;
+            cout << "Username: "; cin >> userEmail;
+            cout << "Password: "; cin >> userPassword;
             cout << "_________________________________" << endl;
             if(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
                 while(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
                     cout << endl;
                     cout << "You have entered the wrong username or password, please try again!" << endl;
-                    cout << "Username: ";
-                    cin >> userEmail;
-                    cout << "Password: ";
-                    cin >> userPassword;
+                    cout << "Username: "; cin >> userEmail;
+                    cout << "Password: "; cin >> userPassword;
                     cout << "_________________________________";
                 }
             }
@@ -104,4 +92,5 @@ int main(){
         }
     }
     cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
+    
 }
