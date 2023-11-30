@@ -92,5 +92,4 @@ int main(){
         }
     }
     cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
-    
 }
