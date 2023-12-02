@@ -7,9 +7,10 @@ int main(){
     int userFeatureChoice;
     string userRegisterEmail, userRegisterPassword, userEmail, userPassword;
 
-    int userIncomeSum, userExpenseSum; userIncomeSum = 0; userExpenseSum = 0;
     int userIncome, userExpense, categoryChoice;
     int userAllocationChoice;
+    double userIncomeSum, userExpenseSum; userIncomeSum = 0; userExpenseSum = 0;
+    double userIncomeSumPercentage, userExpenseSumPercentage;
     bool userFeatureChoiceBool = true;
     char userInputIE;
     
@@ -121,7 +122,7 @@ int main(){
         
         do{
             userFeatureChoiceBool = true;
-           for(int i = 0; userFeatureChoiceBool; i++){
+            for(int i = 0; userFeatureChoiceBool; i++){
                     switch(userFeatureChoice)
                     {
                         case 1:
@@ -143,7 +144,6 @@ int main(){
                                     cout << ">|";
                                 }
                                 cin >> userAllocationChoice;
-                                cout << "_________________________________" << endl;
                             }
                             
                             
@@ -152,6 +152,8 @@ int main(){
                                 case 1:
                                     do{
                                         userIncomeSum = 0;
+                                        userIncomeSumPercentage = 0;
+                                        
                                         cout << "_________________________________" << endl;
                                         cout << "\t\t\tIncome" << endl;
                                         
@@ -171,7 +173,7 @@ int main(){
                                             continue;
                                         }
                     
-                                        cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": ";
+                                        cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": ₱";
                                         cin >> userIncome;
                                         
                                         if (categoryChoice == 0 ) {
@@ -186,21 +188,31 @@ int main(){
                                     } while (userInputIE == 'y' || userInputIE == 'Y');
                                         
                                     cout << "_________________________________" << endl;
-                                    for (int i = 0; i < INCOME_CATEGORIES - 1; ++i) {
-                                        cout << "| " << incomeCategories[i] << " Income: " << income[i] << endl;
+                                    
+                                    for (int i = 0; i < INCOME_CATEGORIES; ++i) {
                                         userIncomeSum += income[i];
-                                        }
-                                        
-                                    cout << "| " << "Others Income: " << income[INCOME_CATEGORIES - 1] << endl;
+                                    }
+                                    
+                                    for (int i = 0; i < INCOME_CATEGORIES - 1; ++i) {
+                                        userIncomeSumPercentage = round(((income[i] / userIncomeSum) * 100));
+                                        cout << " " << userIncomeSumPercentage << "% " <<
+                                        "\t| " << incomeCategories[i] << " Income: ₱" << income[i] << endl;
+                                    }
+                
                                     userIncomeSum += income[INCOME_CATEGORIES - 1];
+                                    userIncomeSumPercentage = round(((income[INCOME_CATEGORIES - 1] / userIncomeSum) * 100));
+                                    cout << " " << userIncomeSumPercentage << "% \t| " << "Others Income: ₱" << income[INCOME_CATEGORIES - 1] << endl;
                                     cout << "_________________________________" << endl;
-                                    cout << "Total Income: "<< userIncomeSum<< endl;
+                                    cout << "Total Income: ₱"<< userIncomeSum<< endl;
                                     cout << "_________________________________" << endl;
                                     break;
                                     
                                 case 2:
                                     
                                     do{
+                                        userExpenseSum = 0;
+                                        userExpenseSumPercentage = 0;
+
                                         cout << "_________________________________" << endl;
                                         cout << "\t\t\tExpenses" << endl;
                                         
@@ -220,7 +232,7 @@ int main(){
                                             continue;
                                         }
                     
-                                        cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": ";
+                                        cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": ₱";
                                         cin >> userExpense;
                                         
                                         if (categoryChoice == 0 ) {
@@ -228,27 +240,40 @@ int main(){
                                         } else {
                                             expense[categoryChoice - 1] += userExpense;
                                         }
-                                
+
                                         // Ask the user if they want to input more data
                                         cout << "Do you want to enter another expense? (y/n): ";
                                         cin >> userInputIE;
                                         
                                     } while (userInputIE == 'y' || userInputIE == 'Y');
                                     
-                                    for (int i = 0; i < EXPENSE_CATEGORIES - 1; ++i) {
-                                        cout << expenseCategories[i] << " Expense: " << expense[i] << endl;
-                                        userExpenseSum += expense[i];
-                                        }
-                                    
-                                    cout << "Other Expense: " << expense[EXPENSE_CATEGORIES - 1] << endl;
-                                    userExpenseSum += expense[EXPENSE_CATEGORIES - 1];
                                     cout << "_________________________________" << endl;
-                                    cout << "Total Expenses: "<< userExpenseSum << endl;
+
+                                    for (int i = 0; i < EXPENSE_CATEGORIES; ++i) {
+                                        userExpenseSum += expense[i];
+                                    }
+
+                                    for (int i = 0; i < EXPENSE_CATEGORIES - 1; ++i) {
+                                        
+                                        userExpenseSumPercentage = round(((expense[i] / userExpenseSum) * 100));
+                                        cout << " " << userExpenseSumPercentage << "% " <<
+                                        "\t| " << expenseCategories[i] << " Expense: ₱" << expense[i] << endl;
+                                    }
+                                    
+                                    
+                                    userExpenseSum += expense[EXPENSE_CATEGORIES - 1];
+                                    userExpenseSumPercentage = round(((expense[EXPENSE_CATEGORIES - 1] / userExpenseSum) * 100));
+                                    cout << " " << userExpenseSumPercentage << "% \t| " << "Bills/Fees & others: ₱" << expense[EXPENSE_CATEGORIES - 1] << endl;
+                                    
+                                    
+                                    cout << "_________________________________" << endl;
+                                    cout << "Total Expenses: ₱"<< userExpenseSum << endl;
                                     cout << "_________________________________" << endl;
                                     break;
                                 
                                 case 3:
                                     userFeatureChoiceBool = false;
+                                    cout << "_________________________________" << endl;
                                     break;
                             }
                                     break;
