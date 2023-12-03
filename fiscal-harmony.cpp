@@ -28,95 +28,98 @@ int main(){
     "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
     };
 
-    // cout << "=============================================================" << endl;
-    // cout << "\t\t\t\tWelcome to Fiscal Harmony" << endl;
-    // cout << "=============================================================" << endl;
-    // cout << "Planning your future for a financial free life." << endl;
-    // cout << "[1]. Sign In [2]. Sign Up" << endl;
-    // cout << ">|";
-    // cin >> userOption;
+    cout << "=============================================================" << endl;
+    cout << "\t\t\t\tWelcome to Fiscal Harmony" << endl;
+    cout << "=============================================================" << endl;
+    cout << "Planning your future for a financial free life." << endl;
+    cout << "[1]. Sign In [2]. Sign Up" << endl;
+    cout << ">|";
+    cin >> userOption;
 
-    // while (userOption != 1 && userOption != 2) {
-    //     cout << "_________________________________" << endl;
-    //     if (cin.fail() || (userOption != 1 && userOption != 2)) {
-    //         // Invalid input, clear the error state and discard the invalid input 
-    //         cin.clear();
-    //         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    //         // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
-    //         cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-    //         cout << ">|";
-    //     }
-    //     cin >> userOption;
-    // }
+    while (userOption != 1 && userOption != 2) {
+        cout << "_________________________________" << endl;
+        if (cin.fail() || (userOption != 1 && userOption != 2)) {
+            // Invalid input, clear the error state and discard the invalid input 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
+            cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+            cout << ">|";
+        }
+        cin >> userOption;
+    }
     
-    // switch(userOption)
-    // {
+    switch(userOption)
+    {
     
-    // case 1:
-    //     cout << "_________________________________" << endl;
-    //     cout << "You are now signing in..." << endl;
-    //     cout << "Username: "; cin >> userEmail;
-    //     cout << "Password: "; cin >> userPassword;
-    //     cout << "_________________________________" << endl;
+    case 1:
+        cout << "_________________________________" << endl;
+        cout << "You are now signing in..." << endl;
+        cout << "Username: "; cin >> userEmail;
+        cout << "Password: "; cin >> userPassword;
+        cout << "_________________________________" << endl;
 
-    //     if(userEmail != "admin" || userPassword != "password"){
-    //         while(userEmail != "admin" || userPassword != "password"){
-    //             cout << "Invalid password or username, please try again!" << endl;
-    //             cout << "Username: "; cin >> userEmail;
-    //             cout << "Password: "; cin >> userPassword;
-    //             cout << "_________________________________" << endl;
+        if(userEmail != "admin" || userPassword != "password"){
+            while(userEmail != "admin" || userPassword != "password"){
+                cout << "Invalid password or username, please try again!" << endl;
+                cout << "Username: "; cin >> userEmail;
+                cout << "Password: "; cin >> userPassword;
+                cout << "_________________________________" << endl;
                 
-    //         }
-    //     }
+            }
+        }
         
-    //     break;
+        break;
     
-    // case 2:
-    //     cout << "_________________________________" << endl;
-    //     cout << "You are now creating an account" << endl;
-    //     cout << "Username: "; cin >> userRegisterEmail;
-    //     cout << "Password: "; cin >> userRegisterPassword;
-    //     cout << "You have succesfully created an account, would you like to sign in?" << endl;
-    //     cout << "[1]. Yes [2]. No" << endl;
-    //     cout << ">|"; cin >> userSignIn;
-    //     cout << "_________________________________" << endl;
+    case 2:
+        cout << "_________________________________" << endl;
+        cout << "You are now creating an account" << endl;
+        cout << "Username: "; cin >> userRegisterEmail;
+        cout << "Password: "; cin >> userRegisterPassword;
+        cout << "You have succesfully created an account, would you like to sign in?" << endl;
+        cout << "[1]. Yes [2]. No" << endl;
+        cout << ">|"; cin >> userSignIn;
+        cout << "_________________________________" << endl;
         
-    //     while (userSignIn != 1 && userSignIn != 2) {
-    //     if (cin.fail() || (userSignIn != 1 && userSignIn != 2)) {
-    //         cin.clear();
-    //         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    //         cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-    //         cout << ">|";
-    //     }
-    //         cin >> userSignIn;
-    //         cout << "_________________________________" << endl;
-    //     }
+        while (userSignIn != 1 && userSignIn != 2) {
+        if (cin.fail() || (userSignIn != 1 && userSignIn != 2)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+            cout << ">|";
+        }
+            cin >> userSignIn;
+            cout << "_________________________________" << endl;
+        }
         
-    //     if (userSignIn == 1){
-    //         cout << "Username: "; cin >> userEmail;
-    //         cout << "Password: "; cin >> userPassword;
-    //         cout << "_________________________________" << endl;
-    //         if(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
-    //             while(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
-    //                 cout << endl;
-    //                 cout << "You have entered the wrong username or password, please try again!" << endl;
-    //                 cout << "Username: "; cin >> userEmail;
-    //                 cout << "Password: "; cin >> userPassword;
-    //                 cout << "_________________________________" << endl;
-    //             }
-    //         }
-    //     } else if (userSignIn == 2){
-    //         cout << "Have a great day ahead!";
-    //         exit(0);
-    //     } else {
-    //         cout << "Invalid input";
-    //     }
-    // }
+        if (userSignIn == 1){
+            cout << "Username: "; cin >> userEmail;
+            cout << "Password: "; cin >> userPassword;
+            cout << "_________________________________" << endl;
+            if(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
+                while(userEmail != userRegisterEmail || userPassword != userRegisterPassword){
+                    cout << endl;
+                    cout << "You have entered the wrong username or password, please try again!" << endl;
+                    cout << "Username: "; cin >> userEmail;
+                    cout << "Password: "; cin >> userPassword;
+                    cout << "_________________________________" << endl;
+                }
+            }
+        } else if (userSignIn == 2){
+            cout << "Have a great day ahead!";
+            exit(0);
+        } else {
+            cout << "Invalid input";
+        }
+    }
     
     for(int i = 0; true; i++){
         cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
         cout << "Here are our current available features, check them out!:" << endl;
         cout << "[1]. Income and Expense Allocation" << endl;
+        cout << "[2]. Annual Income Taxed Calculator" << endl;
+        cout << "[3]. Emergency Fund Calculator" << endl;
+        cout << "[4]. Log out" << endl;
     
         cout << ">|"; cin >> userFeatureChoice;
         
@@ -231,9 +234,18 @@ int main(){
                                             cout << "Invalid category choice. Please try again." << endl;
                                             continue;
                                         }
-                    
+                                        
                                         cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": ₱";
                                         cin >> userExpense;
+                                        
+                                        if (userExpense > userIncomeSum) {
+                                            cout << " " << endl;
+                                            cout << "*********************************" << endl;
+                                            cout << "Insufficient funds! Please add more income." << endl;
+                                            cout << "*********************************" << endl;
+                                            break;
+                                        }
+                                        
                                         
                                         if (categoryChoice == 0 ) {
                                             userExpenseSum += userExpense;
@@ -245,12 +257,15 @@ int main(){
                                         cout << "Do you want to enter another expense? (y/n): ";
                                         cin >> userInputIE;
                                         
+                                        
+                                        
                                     } while (userInputIE == 'y' || userInputIE == 'Y');
                                     
                                     cout << "_________________________________" << endl;
 
                                     for (int i = 0; i < EXPENSE_CATEGORIES; ++i) {
                                         userExpenseSum += expense[i];
+                                        
                                     }
 
                                     for (int i = 0; i < EXPENSE_CATEGORIES - 1; ++i) {
@@ -268,6 +283,7 @@ int main(){
                                     
                                     cout << "_________________________________" << endl;
                                     cout << "Total Expenses: ₱"<< userExpenseSum << endl;
+                                    cout << "Total Funds: ₱" << userIncomeSum - userExpenseSum << endl;
                                     cout << "_________________________________" << endl;
                                     break;
                                 
@@ -276,13 +292,33 @@ int main(){
                                     cout << "_________________________________" << endl;
                                     break;
                             }
-                                    break;
-                        // case 2:
-                        //     break;
-                    }        //First Switch
+                            break;
+                            case 4:
+                            userFeatureChoice = false;
+                            int userLogOut;
+                            
+                            cout << "*********************************" << endl;
+                            cout << "Do you want to log out?" << endl;
+                            cout << "[1]. Yes [2]. No" << endl;
+                            cout << ">| ";
+                            cin >> userLogOut;
+                            while (userLogOut != 1 && userLogOut != 2) {
+                                cout << "_________________________________" << endl;
+                                if (cin.fail() || (userLogOut != 1 && userLogOut != 2)) {
+                                    // Invalid input, clear the error state and discard the invalid input 
+                                    cin.clear();
+                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                    // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
+                                    cout << "Invalid input. Please enter a valid number: " << endl;
+                                    cout << ">|";
+                                }
+                                cin >> userAllocationChoice;
+                            }
+                            cout << "Have a great day ahead!" << userEmail << endl;
+                            cout << "*********************************" << endl;
            } 
         } while (userAllocationChoice != 3);
-    } while (userFeatureChoice != 1);
-    cout << "Exit Loop";
+    } while (userFeatureChoice != 1 && userFeatureChoice != 2 && userFeatureChoice != 3 && userFeatureChoice != 4);
     return 0;
+    }
 }
